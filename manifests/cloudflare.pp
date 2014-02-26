@@ -26,5 +26,5 @@ class dofirewall::cloudflare {
     }
   }
 
-  create_resource(allow_web_from, $cloudflare_ips)
+  create_resources(allow_web_from, $cloudflare_ips)
 }
