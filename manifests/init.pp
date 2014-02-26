@@ -11,4 +11,12 @@ class dofirewall {
     before  => Class['dofirewall::post'],
     require => Class['dofirewall::pre'],
   }
+
+  @@firewall { "100 allow internal traffic $::fqdn":
+    proto  => 'all',
+    action => 'accept',
+    source => $::ipaddress_eth1,
+  }
+
+  Firewall <<| |>>
 }
