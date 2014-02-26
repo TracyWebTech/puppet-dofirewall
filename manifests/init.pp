@@ -19,4 +19,10 @@ class dofirewall {
   }
 
   Firewall <<| |>>
+
+  firewall { "101 allow ssh from anywhere":
+    proto  => 'tcp',
+    port   => 22,
+    action => 'accept',
+  }
 }
