@@ -12,7 +12,7 @@ class dofirewall {
     require => Class['dofirewall::pre'],
   }
 
-  @@firewall { "100 allow internal traffic $::fqdn":
+  @@firewall { "100 accept internal traffic $::fqdn":
     proto  => 'all',
     action => 'accept',
     source => $::ipaddress_eth1,
@@ -20,7 +20,7 @@ class dofirewall {
 
   Firewall <<| |>>
 
-  firewall { "101 allow ssh from anywhere":
+  firewall { "101 accept ssh from anywhere":
     proto  => 'tcp',
     port   => 22,
     action => 'accept',
