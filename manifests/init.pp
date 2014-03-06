@@ -1,5 +1,6 @@
 class dofirewall (
   $allow_all_from = [],
+  $allow_ports = [],
 ) {
 
   include dofirewall::pre
@@ -35,9 +36,15 @@ class dofirewall (
     allow_all_from { $allow_all_from: }
   }
 
-  firewall { "102 accept ssh from anywhere":
-    proto  => 'tcp',
-    port   => 22,
-    action => 'accept',
+  define allow_ports {
+    firewall { "102 accept all on port $title":
+      proto  => 'all',
+      port   => $title,
+      action => 'accept',
+    }
+  }
+
+  if ($allow_ports) {
+    allow_ports { $allow_ports: }
   }
 }
