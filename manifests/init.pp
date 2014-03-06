@@ -38,7 +38,7 @@ class dofirewall (
 
   define allow_ports {
     firewall { "102 accept all on port $title":
-      proto  => 'all',
+      proto  => 'tcp',
       port   => $title,
       action => 'accept',
     }
