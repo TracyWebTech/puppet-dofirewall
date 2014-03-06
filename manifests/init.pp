@@ -1,4 +1,7 @@
-class dofirewall {
+class dofirewall (
+  $allow_all_from = [],
+) {
+
   include dofirewall::pre
   include dofirewall::post
   include firewall
@@ -20,7 +23,19 @@ class dofirewall {
 
   Firewall <<| |>>
 
-  firewall { "101 accept ssh from anywhere":
+  define allow_all_from {
+    firewall { "101 accept all from $title":
+      proto  => 'all',
+      action => 'accept',
+      source => $title,
+    }
+  }
+
+  if ($allow_all_from) {
+    allow_all_from { $allow_all_from: }
+  }
+
+  firewall { "102 accept ssh from anywhere":
     proto  => 'tcp',
     port   => 22,
     action => 'accept',
