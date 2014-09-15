@@ -15,6 +15,7 @@ class dofirewall::cloudflare {
     "197.234.240.0/22",
     "198.41.128.0/17",
     "162.158.0.0/15",
+    "104.16.0.0/12",
   ]
 
   define allow_web_from {
