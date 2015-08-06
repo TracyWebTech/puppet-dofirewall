@@ -1,5 +1,5 @@
 name    'tracywebtech-dofirewall'
-version '0.3.1'
+version '0.3.2'
 source 'https://github.com/TracyWebTech/puppet-dofirewall'
 author 'tracywebtech'
 license 'GPL, Version 2.0'
