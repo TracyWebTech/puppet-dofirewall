@@ -24,27 +24,11 @@ class dofirewall (
 
   Firewall <<| |>>
 
-  define allow_all_from {
-    firewall { "101 accept all from $title":
-      proto  => 'all',
-      action => 'accept',
-      source => $title,
-    }
-  }
-
   if ($allow_all_from) {
-    allow_all_from { $allow_all_from: }
-  }
-
-  define allow_ports {
-    firewall { "102 accept all on port $title":
-      proto  => 'tcp',
-      port   => $title,
-      action => 'accept',
-    }
+    dofirewall::allow_all_from { $allow_all_from: }
   }
 
   if ($allow_ports) {
-    allow_ports { $allow_ports: }
+    dofirewall::allow_ports { $allow_ports: }
   }
 }
