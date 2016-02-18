@@ -1,0 +1,14 @@
+{
+  "name": "tracywebtech-dofirewall",
+  "version": "0.3.3",
+  "author": "tracywebtech",
+  "summary": "Firewall configuration for DigitalOcean droplets",
+  "license": "GPL, Version 2.0",
+  "source": "https://github.com/TracyWebTech/puppet-dofirewall",
+  "project_page": "https://github.com/TracyWebTech/puppet-dofirewall",
+  "issues_url": "https://github.com/TracyWebTech/puppet-dofirewall/issues",
+  "description": "Puppet module to configure firewall on DigitalOcean servers allowing traffic on private network from nodes connected to the same master",
+  "dependencies": [
+    {"name":"puppetlabs/firewall","version_requirement":">= 1.8.0"}
+  ]
+}
