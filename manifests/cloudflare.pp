@@ -20,14 +20,5 @@ class dofirewall::cloudflare {
     "199.27.128.0/21",
   ]
 
-  define allow_web_from {
-    firewall { "110 accept web traffic: $title":
-      proto  => 'tcp',
-      port   => [80, 443],
-      action => 'accept',
-      source => $title,
-    }
-  }
-
-  allow_web_from { $cloudflare_ips: }
+  dofirewall::allow_web_from { $cloudflare_ips: }
 }
